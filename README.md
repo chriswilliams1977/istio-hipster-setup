@@ -31,7 +31,7 @@ Install Istio CRD’s
 helm template install/kubernetes/helm/istio-init --name istio-init --namespace istio-system | kubectl apply -f -
 
 Confirm 23 CRD’s installed
-kubectl get crds | grep 'istio.io\|certmanager.k8s.io' | wc -l
+kubectl get crds | grep 'istio.io\\|certmanager.k8s.io' | wc -l
 
 Install Istio add on’s
 helm template ./install/kubernetes/helm/istio --name istio --namespace istio-system \
