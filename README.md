@@ -61,6 +61,9 @@ Get Hipster istio-ingressgateway IP and confirm you can view Hipster store
 kubectl get service/frontend-external
 
 Browser Kiali using port forwarding
+NOTE
+If uaing Cloud shell browse the application from the Cloud Shell preview icon and change port number
+
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=kiali -o jsonpath='{.items[0].metadata.name}') 20001:20001
 
 Browse 127.0.0.1:20001 and login using admin/admin
@@ -72,3 +75,13 @@ kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=gr
 
 Prometheus
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 8081:9090 &
+
+kubectl edit svc -n istio-system kiali
+
+Option instead of Port Forwarding
+
+kubectl edit svc -n istio-system kiali
+
+<replace ClusterIP with LoadBalancer> 
+<remove clusterIP lines> 
+<run get svc to see the provisioned external IP:port>
