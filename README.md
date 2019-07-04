@@ -82,6 +82,6 @@ Option instead of Port Forwarding
 
 kubectl edit svc -n istio-system kiali
 
-<replace ClusterIP with LoadBalancer> 
-<remove clusterIP lines> 
-<run get svc to see the provisioned external IP:port>
+replace ClusterIP with LoadBalancer 
+remove clusterIP lines 
+run get svc to see the provisioned external IP:port
